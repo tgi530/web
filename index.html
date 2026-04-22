@@ -758,6 +758,57 @@
     font-weight: 700;
   }
 
+  /* ── CONTRIBUTION METHODS ── */
+  .contribution-methods {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+    margin: 1.5rem 0 1.25rem;
+  }
+
+  .contribution-card {
+    background: var(--warm-white);
+    border: 1px solid rgba(92,61,30,0.1);
+    border-top: 3px solid var(--amber);
+    border-radius: 4px;
+    padding: 1rem 1.1rem;
+    min-width: 210px;
+    max-width: 240px;
+    text-align: center;
+  }
+
+  .contribution-method {
+    font-size: 0.82rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--amber-dark);
+    font-weight: 800;
+    margin-bottom: 0.5rem;
+  }
+
+  .contribution-handle {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.05rem;
+    color: var(--brown);
+    font-weight: 600;
+    word-break: break-word;
+  }
+
+  .contribution-subnote {
+    font-size: 0.78rem;
+    color: var(--text-light);
+    margin-top: 0.45rem;
+    line-height: 1.45;
+  }
+
+  .contribution-qr-note {
+    text-align: center;
+    font-size: 0.82rem;
+    color: var(--text-light);
+    margin-top: 0.7rem;
+  }
+
   @media (max-width: 500px) {
     .sponsor-grid { grid-template-columns: 1fr; }
   }
@@ -945,26 +996,38 @@
 <!-- CONTRIBUTIONS -->
 <section id="contributions">
   <h2>Contributions</h2>
-  <div class="contrib-grid">
-    <div class="contrib-card">
-      <p>Our group depends on the voluntary contributions of members to help cover the practical expenses of carrying the message online. These contributions help support the group and preserve a stable meeting place for alcoholics seeking recovery.</p>
+  <div class="about-text">
+    <p>Our group depends on the voluntary contributions of members to help cover the practical expenses of carrying the message online. These contributions help support the stability of the group and keep our daily meeting place available to alcoholics seeking recovery.</p>
 
+    <p>Contributions may be made using any of the methods below.</p>
+  </div>
 
-      <p>Contributions may be made by Venmo, Zelle, or CashApp. If you wish to contribute by other means, please contact the group treasurer, <strong>John E.</strong>, at <a href="mailto:johnfordevans@gmail.com">johnfordevans@gmail.com</a>.</p>
-
-      <div class="contrib-methods">
-        <span class="contrib-method">Venmo</span>
-        <span class="contrib-method">Zelle</span>
-        <span class="contrib-method">CashApp</span>
-      </div>
-
-      <p class="contrib-note">Thank you for helping <span class="group-name">TGI530 Online</span> remain self-supporting in the spirit of A.A.'s Seventh Tradition.</p>
+  <div class="contribution-methods">
+    <div class="contribution-card">
+      <div class="contribution-method">Venmo</div>
+      <div class="contribution-handle">@tgi530online</div>
     </div>
 
-    <div class="qr-card">
-      <img src="assets/images/TGI530VENMO.jpg" alt="Venmo QR code for TGI530 Online contributions">
-      <div class="qr-caption">Venmo: <strong>@tgi530online</strong></div>
+    <div class="contribution-card">
+      <div class="contribution-method">Cash App</div>
+      <div class="contribution-handle">$tgi530online</div>
     </div>
+
+    <div class="contribution-card">
+      <div class="contribution-method">Zelle</div>
+      <div class="contribution-handle">dcjohnny@hotmail.com</div>
+    </div>
+  </div>
+
+  <div class="resource-card" style="max-width: 320px; margin: 1.5rem auto 0; text-align: center;">
+    <div class="resource-title">Venmo QR</div>
+    <div class="resource-desc">Scan for Venmo contributions.</div>
+    <img src="assets/images/TGI530VENMO.jpg" alt="Venmo QR code for TGI530 Online contributions" style="max-width: 220px; width: 100%; height: auto; display: block; margin: 0 auto;">
+    <div class="contribution-qr-note">@tgi530online</div>
+  </div>
+
+  <div class="about-text" style="margin-top: 1.2rem;">
+    <p>If you have any questions, or would like help with contributing by any other means, please contact the group treasurer, <strong>John E.</strong>, at <a href="mailto:dcjohnny@hotmail.com">dcjohnny@hotmail.com</a>.</p>
   </div>
 </section>
 
@@ -1002,7 +1065,7 @@
         <div class="gsb-name">John E.</div>
         <div class="gsb-role">Treasurer</div>
       </div>
-      <div class="gsb-email"><a href="mailto:johnfordevans@gmail.com">✉ johnfordevans@gmail.com</a></div>
+      <div class="gsb-email"><a href="mailto:dcjohnny@hotmail.com">✉ dcjohnny@hotmail.com</a></div>
     </div>
 
     <div class="gsb-card">
