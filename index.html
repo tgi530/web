@@ -512,6 +512,29 @@
     margin-top: 1rem;
   }
 
+  .section-intro {
+    margin-bottom: 1.6rem;
+    color: var(--text-light);
+    font-size: 0.95rem;
+  }
+
+  .site-meta {
+    margin-top: 1.25rem;
+    color: rgba(245,239,230,0.7);
+    font-size: 0.76rem;
+    letter-spacing: 0.04em;
+  }
+
+  .site-meta a {
+    color: var(--amber-light);
+    text-decoration: none;
+  }
+
+  .site-meta a:hover,
+  .site-meta a:focus-visible {
+    text-decoration: underline;
+  }
+
 
   /* ── FOOTER ── */
   footer {
@@ -792,7 +815,7 @@
   }
 </style>
 </head>
-<body>
+<body id="top">
 <a class="skip-link" href="#main-content">Skip to main content</a>
 
 <!-- HEADER -->
@@ -804,6 +827,7 @@
 
 <!-- NAV -->
 <nav>
+  <a href="#top">Home</a>
   <a href="#meetings">Meetings</a>
   <a href="#resources">Resources</a>
   <a href="#contributions">Contribute</a>
@@ -984,22 +1008,8 @@
 <!-- RESOURCES -->
 <section id="resources">
   <h2>Resources &amp; Downloads</h2>
-  <p style="margin-bottom: 1.6rem; color: var(--text-light); font-size: 0.95rem;">Resources are updated monthly. Check back regularly for current materials.</p>
+  <p class="section-intro">A few core A.A. readings are available here for quick reference.</p>
   <div class="resources-grid">
-
-    <div class="resource-card">
-      <div class="resource-icon">📋</div>
-      <div class="resource-title">Meeting Format</div>
-      <div class="resource-desc">Current reading format used in our daily meetings.</div>
-      <a href="assets/docs/meeting-format.pdf">Download PDF</a>
-    </div>
-
-    <div class="resource-card">
-      <div class="resource-icon">📅</div>
-      <div class="resource-title">Monthly Schedule</div>
-      <div class="resource-desc">Printable meeting schedule with Zoom access details.</div>
-      <a href="assets/docs/monthly-schedule.pdf">Download PDF</a>
-    </div>
 
     <div class="resource-card">
       <div class="resource-icon">📖</div>
@@ -1022,16 +1032,8 @@
       <a href="assets/docs/twelve-traditions.pdf">Download PDF</a>
     </div>
 
-    <div class="resource-card">
-      <div class="resource-icon">📝</div>
-      <div class="resource-title">Meeting Minutes</div>
-      <div class="resource-desc">Most recent group conscience business meeting notes.</div>
-      <a href="assets/docs/meeting-minutes.pdf">Download PDF</a>
-    </div>
-
   </div>
 </section>
-
 
 <!-- QUOTE 5 -->
 <div class="quote-block">
@@ -1097,13 +1099,14 @@
       </div>
     </div>
     <div class="footer-contact-url">
-      Coming soon on GitHub Pages
+      https://tgi530.github.io/web/
     </div>
   </div>
 
   <div class="footer-fine">
     A Group of Alcoholics Anonymous<br>
     <small>Alcoholics Anonymous is not affiliated with this website. A.A. has no opinion on outside enterprises.</small>
+    <div class="site-meta">Last updated: April 21, 2026</div>
   </div>
 </footer>
 
