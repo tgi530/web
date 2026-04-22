@@ -1,0 +1,1111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TGI530 Online | A.A. Group</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --cream: #f5efe6;
+    --warm-white: #fdf8f2;
+    --amber: #c8843a;
+    --amber-dark: #9e6328;
+    --amber-light: #e8aa6a;
+    --brown: #5c3d1e;
+    --brown-light: #8b6040;
+    --text: #3a2a1a;
+    --text-light: #7a6050;
+    --gold: #d4a843;
+    --sage: #7a8c6e;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Lato', sans-serif;
+    background: var(--cream);
+    color: var(--text);
+    line-height: 1.7;
+  }
+
+  .skip-link {
+    position: absolute;
+    left: 1rem;
+    top: -3rem;
+    background: var(--brown);
+    color: var(--cream);
+    padding: 0.7rem 1rem;
+    text-decoration: none;
+    z-index: 2000;
+    border-radius: 4px;
+    transition: top 0.2s ease;
+  }
+
+  .skip-link:focus {
+    top: 1rem;
+  }
+
+  a:focus-visible {
+    outline: 3px solid var(--gold);
+    outline-offset: 3px;
+  }
+
+
+  /* Grain overlay */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 1000;
+    opacity: 0.4;
+  }
+
+  /* ── HEADER ── */
+  header {
+    background: var(--brown);
+    color: var(--cream);
+    text-align: center;
+    padding: 3.5rem 2rem 3rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  header::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse at 50% 0%, rgba(200,132,58,0.3) 0%, transparent 70%);
+  }
+
+  header::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0; right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, transparent, var(--gold), var(--amber), var(--gold), transparent);
+  }
+
+  .header-symbol {
+    font-size: 2.8rem;
+    margin-bottom: 0.5rem;
+    opacity: 0.85;
+    position: relative;
+  }
+
+  header h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2.2rem, 5vw, 3.4rem);
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    position: relative;
+    color: var(--cream);
+  }
+
+  header .subtitle {
+    font-size: 0.95rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--amber-light);
+    margin-top: 0.6rem;
+    font-weight: 300;
+    position: relative;
+  }
+
+  /* ── NAV ── */
+  nav {
+    background: var(--amber-dark);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 0;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.2);
+  }
+
+  nav a {
+    color: var(--cream);
+    text-decoration: none;
+    padding: 0.85rem 1.4rem;
+    font-size: 0.82rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    font-weight: 700;
+    transition: background 0.2s, color 0.2s;
+  }
+
+  nav a:hover,
+  nav a:focus-visible {
+    background: rgba(255,255,255,0.12);
+    color: #fff;
+  }
+
+  /* ── SECTIONS ── */
+  section {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 4rem 2rem;
+  }
+
+  section + section {
+    border-top: 1px solid rgba(92,61,30,0.12);
+  }
+
+  h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.9rem;
+    color: var(--brown);
+    margin-bottom: 1.6rem;
+    position: relative;
+    padding-bottom: 0.8rem;
+  }
+
+  h2::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 48px;
+    height: 2px;
+    background: var(--amber);
+  }
+
+  h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.15rem;
+    color: var(--amber-dark);
+    margin-bottom: 0.4rem;
+  }
+
+  /* ── QUOTE BLOCKS ── */
+  .quote-block {
+    background: var(--brown);
+    color: var(--cream);
+    text-align: center;
+    padding: 3.5rem 3rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .quote-block::before {
+    content: '\201C';
+    position: absolute;
+    top: -0.5rem;
+    left: 1.5rem;
+    font-family: 'Playfair Display', serif;
+    font-size: 8rem;
+    color: var(--amber);
+    opacity: 0.2;
+    line-height: 1;
+  }
+
+  .quote-block blockquote {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.1rem, 2.5vw, 1.35rem);
+    font-style: italic;
+    line-height: 1.6;
+    max-width: 620px;
+    margin: 0 auto 1rem;
+    position: relative;
+  }
+
+  .quote-block cite {
+    font-size: 0.82rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--amber-light);
+    font-style: normal;
+  }
+
+  /* ── MEETING SCHEDULE ── */
+  .schedule-grid {
+    display: grid;
+    gap: 1rem;
+  }
+
+  .meeting-card {
+    background: var(--warm-white);
+    border: 1px solid rgba(92,61,30,0.1);
+    border-left: 4px solid var(--amber);
+    border-radius: 4px;
+    padding: 0.5rem 1.2rem;
+    display: grid;
+    grid-template-columns: 140px 1fr 140px;
+    grid-template-rows: auto auto;
+    align-items: center;
+    column-gap: 0.6rem;
+    row-gap: 0.4rem;
+    transition: box-shadow 0.2s, transform 0.2s;
+  }
+
+  .meeting-card:hover {
+    box-shadow: 0 4px 16px rgba(92,61,30,0.1);
+    transform: translateY(-1px);
+  }
+
+  .meeting-icon {
+    grid-column: 3;
+    grid-row: 1 / 3;
+    width: 140px;
+    height: 100%;
+    opacity: 0.85;
+    align-self: stretch;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .meeting-icon svg {
+    width: 70px;
+    height: 70px;
+    display: block;
+  }
+
+  .meeting-day {
+    grid-column: 1;
+    grid-row: 1;
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--brown);
+    line-height: 1.1;
+    align-self: end;
+  }
+
+  .meeting-time {
+    grid-column: 2;
+    grid-row: 1;
+    color: var(--text-light);
+    font-weight: 400;
+    font-size: 0.78rem;
+    letter-spacing: 0.04em;
+    text-align: center;
+    width: 100%;
+  }
+
+  .meeting-type {
+    grid-column: 1;
+    grid-row: 2;
+    font-family: 'Playfair Display', serif;
+    font-size: 1.05rem;
+    font-style: italic;
+    font-weight: 600;
+    color: var(--amber-dark);
+    letter-spacing: 0.02em;
+    line-height: 1.1;
+    align-self: start;
+  }
+
+  .meeting-link {
+    grid-column: 2;
+    grid-row: 2;
+    text-align: center;
+    width: 100%;
+  }
+
+  .meeting-link a {
+    display: inline-block;
+    background: var(--amber);
+    color: #fff;
+    text-decoration: none;
+    padding: 0.3rem 0.9rem;
+    border-radius: 2px;
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    transition: background 0.2s;
+  }
+
+  .meeting-link a:hover {
+    background: var(--amber-dark);
+  }
+
+  .meeting-note {
+    font-size: 0.85rem;
+    color: var(--text-light);
+    margin-top: 1.2rem;
+    font-style: italic;
+  }
+
+  /* ── PEOPLE IN SERVICE ── */
+  .service-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 1rem;
+  }
+
+  .service-card {
+    background: var(--warm-white);
+    border: 1px solid rgba(92,61,30,0.1);
+    border-radius: 4px;
+    padding: 1.2rem 1.4rem;
+    text-align: center;
+    transition: box-shadow 0.2s;
+  }
+
+  .service-card:hover {
+    box-shadow: 0 4px 16px rgba(92,61,30,0.1);
+  }
+
+  .service-initial {
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--amber), var(--amber-dark));
+    color: #fff;
+    font-family: 'Playfair Display', serif;
+    font-size: 1.4rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 0.8rem;
+  }
+
+  .service-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.05rem;
+    color: var(--brown);
+    font-weight: 600;
+  }
+
+  .service-role {
+    font-size: 0.8rem;
+    color: var(--text-light);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin-top: 0.25rem;
+  }
+
+  /* ── GSB ── */
+  .gsb-grid {
+    display: grid;
+    gap: 1rem;
+  }
+
+  .gsb-card {
+    background: var(--warm-white);
+    border: 1px solid rgba(92,61,30,0.1);
+    border-radius: 4px;
+    padding: 1.2rem 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 0.8rem;
+  }
+
+  .gsb-info .gsb-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.05rem;
+    color: var(--brown);
+    font-weight: 600;
+  }
+
+  .gsb-info .gsb-role {
+    font-size: 0.8rem;
+    color: var(--text-light);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin-top: 0.2rem;
+  }
+
+  .gsb-email a {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    color: var(--amber-dark);
+    text-decoration: none;
+    font-size: 0.88rem;
+    font-weight: 700;
+    border-bottom: 1px solid transparent;
+    transition: border-color 0.2s, color 0.2s;
+  }
+
+  .gsb-email a:hover {
+    color: var(--brown);
+    border-color: var(--amber);
+  }
+
+  /* ── RESOURCES ── */
+  .resources-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 1rem;
+  }
+
+  .resource-card {
+    background: var(--warm-white);
+    border: 1px solid rgba(92,61,30,0.1);
+    border-radius: 4px;
+    padding: 1.3rem;
+    text-align: center;
+    transition: box-shadow 0.2s, transform 0.2s;
+  }
+
+  .resource-card:hover {
+    box-shadow: 0 4px 16px rgba(92,61,30,0.12);
+    transform: translateY(-2px);
+  }
+
+  .resource-icon {
+    font-size: 2rem;
+    margin-bottom: 0.6rem;
+  }
+
+  .resource-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1rem;
+    color: var(--brown);
+    font-weight: 600;
+    margin-bottom: 0.3rem;
+  }
+
+  .resource-desc {
+    font-size: 0.8rem;
+    color: var(--text-light);
+    margin-bottom: 0.8rem;
+    line-height: 1.5;
+  }
+
+  .resource-card a {
+    display: inline-block;
+    background: transparent;
+    color: var(--amber-dark);
+    text-decoration: none;
+    border: 1.5px solid var(--amber);
+    padding: 0.3rem 0.9rem;
+    border-radius: 2px;
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    transition: background 0.2s, color 0.2s;
+  }
+
+  .resource-card a:hover {
+    background: var(--amber);
+    color: #fff;
+  }
+
+  .group-name {
+    font-family: 'Playfair Display', serif;
+    font-weight: 600;
+    color: var(--amber-dark);
+    letter-spacing: 0.03em;
+  }
+
+  /* ── ABOUT ── */
+  .about-text {
+    font-size: 1.05rem;
+    line-height: 1.85;
+    color: var(--text);
+    max-width: 680px;
+  }
+
+  .about-text p + p {
+    margin-top: 1rem;
+  }
+
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--brown);
+    color: var(--cream);
+    text-align: center;
+    padding: 2.5rem 2rem;
+    font-size: 0.85rem;
+    line-height: 1.8;
+  }
+
+  footer .serenity {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: 1rem;
+    color: var(--amber-light);
+    margin-bottom: 1.8rem;
+  }
+
+  .footer-contact {
+    background: rgba(255,255,255,0.07);
+    border: 1px solid rgba(232,170,106,0.25);
+    border-radius: 4px;
+    padding: 1.2rem 1.5rem;
+    max-width: 500px;
+    margin: 0 auto 1.5rem;
+  }
+
+  .footer-group-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: var(--amber-light);
+    margin-bottom: 0.9rem;
+    letter-spacing: 0.04em;
+  }
+
+  .footer-contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.5rem 1.5rem;
+    text-align: center;
+  }
+
+  .footer-contact-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.1rem;
+  }
+
+  .footer-label {
+    font-size: 0.7rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--amber);
+    font-weight: 700;
+  }
+
+  .footer-contact-item span,
+  .footer-contact-item a {
+    color: var(--cream);
+    text-decoration: none;
+    font-size: 0.88rem;
+  }
+
+  .footer-contact-item a:hover {
+    color: var(--amber-light);
+  }
+
+  .footer-contact-url {
+    margin-top: 0.8rem;
+    padding-top: 0.7rem;
+    border-top: 1px solid rgba(232,170,106,0.2);
+    text-align: center;
+    font-size: 0.82rem;
+    color: var(--amber-light);
+    letter-spacing: 0.06em;
+  }
+
+  .footer-fine {
+    color: rgba(245,239,230,0.55);
+    font-size: 0.78rem;
+    line-height: 1.7;
+  }
+
+  footer a {
+    color: var(--amber-light);
+    text-decoration: none;
+  }
+
+  footer .divider {
+    color: var(--amber);
+    margin: 0 0.5rem;
+  }
+
+
+  /* ── CONTRIBUTIONS ── */
+  .contrib-grid {
+    display: grid;
+    grid-template-columns: 1.35fr 0.95fr;
+    gap: 1.4rem;
+    align-items: start;
+    margin-top: 1.6rem;
+  }
+
+  .contrib-card,
+  .qr-card {
+    background: var(--warm-white);
+    border: 1px solid rgba(92,61,30,0.1);
+    border-radius: 4px;
+    padding: 1.3rem 1.4rem;
+  }
+
+  .contrib-quote {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem;
+    color: var(--brown);
+    line-height: 1.6;
+    margin-bottom: 1rem;
+    padding-left: 1rem;
+    border-left: 3px solid var(--amber);
+  }
+
+  .contrib-methods {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+    margin: 1rem 0;
+  }
+
+  .contrib-method {
+    display: inline-block;
+    border: 1px solid rgba(200,132,58,0.45);
+    color: var(--amber-dark);
+    background: rgba(232,170,106,0.1);
+    padding: 0.35rem 0.7rem;
+    border-radius: 999px;
+    font-size: 0.8rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    font-weight: 700;
+  }
+
+  .contrib-note {
+    color: var(--text-light);
+    font-size: 0.92rem;
+  }
+
+  .qr-card {
+    text-align: center;
+  }
+
+  .qr-card img {
+    width: 100%;
+    max-width: 320px;
+    height: auto;
+    border-radius: 10px;
+    border: 1px solid rgba(92,61,30,0.08);
+    background: #fff;
+  }
+
+  .qr-caption {
+    margin-top: 0.8rem;
+    font-size: 0.88rem;
+    color: var(--text-light);
+  }
+
+  /* ── SPONSORSHIP ── */
+  .sponsor-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    margin-top: 1.8rem;
+  }
+
+  .sponsor-card {
+    background: var(--warm-white);
+    border: 1px solid rgba(92,61,30,0.1);
+    border-top: 3px solid var(--amber);
+    border-radius: 4px;
+    padding: 1.2rem 1.4rem;
+  }
+
+  .sponsor-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: var(--brown);
+    margin-bottom: 0.3rem;
+  }
+
+  .sponsor-scope {
+    font-size: 0.8rem;
+    color: var(--text-light);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    margin-bottom: 0.7rem;
+  }
+
+  .sponsor-phone {
+    font-size: 0.88rem;
+    color: var(--text-light);
+    margin-bottom: 0.3rem;
+  }
+
+  .sponsor-email {
+    font-size: 0.88rem;
+    color: var(--text-light);
+  }
+
+  .sponsor-email a {
+    color: var(--amber-dark);
+    text-decoration: none;
+    font-weight: 700;
+  }
+
+  .sponsor-phone-val {
+    color: var(--text);
+    font-weight: 700;
+  }
+
+  @media (max-width: 500px) {
+    .sponsor-grid { grid-template-columns: 1fr; }
+  }
+
+  /* ── ANIMATIONS ── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  header h1, header .subtitle {
+    animation: fadeUp 0.8s ease both;
+  }
+  header .subtitle { animation-delay: 0.15s; }
+
+  @media (max-width: 600px) {
+    section {
+      padding: 3rem 1.25rem;
+    }
+
+    .quote-block {
+      padding: 3rem 1.5rem;
+    }
+
+    .meeting-card {
+      grid-template-columns: 1fr;
+      grid-template-rows: auto auto auto auto;
+      padding: 1rem;
+      text-align: left;
+    }
+
+    .meeting-day,
+    .meeting-time,
+    .meeting-type,
+    .meeting-link,
+    .meeting-icon {
+      grid-column: 1;
+      text-align: left;
+      width: 100%;
+    }
+
+    .meeting-day { grid-row: 1; }
+    .meeting-time { grid-row: 2; }
+    .meeting-type { grid-row: 3; margin-top: 0.15rem; }
+    .meeting-link { grid-row: 4; margin-top: 0.4rem; }
+    .meeting-icon {
+      display: none;
+    }
+
+    .footer-contact-grid,
+    .sponsor-grid {
+      grid-template-columns: 1fr;
+    }
+
+    nav a { padding: 0.75rem 0.9rem; font-size: 0.75rem; }
+  }
+</style>
+</head>
+<body>
+<a class="skip-link" href="#main-content">Skip to main content</a>
+
+<!-- HEADER -->
+<header>
+  <div class="header-symbol">☙</div>
+  <h1>TGI530 Online</h1>
+  <div class="subtitle">An Online Group of Alcoholics Anonymous</div>
+</header>
+
+<!-- NAV -->
+<nav>
+  <a href="#meetings">Meetings</a>
+  <a href="#resources">Resources</a>
+  <a href="#contributions">Contribute</a>
+  <a href="#sponsorship">Sponsorship</a>
+  <a href="#gsb">Service Board</a>
+  <a href="#contact">Contact</a>
+</nav>
+
+<main id="main-content">
+<!-- ABOUT -->
+<section id="about">
+  <h2>Welcome</h2>
+  <div class="about-text">
+    <p><span class="group-name">TGI530 Online</span> is a group of Alcoholics Anonymous that meets daily via Zoom. We are part of a worldwide fellowship of men and women who share their experience, strength, and hope with each other so that they may solve their common problem and help others to recover from alcoholism.</p>
+    <p>The only requirement for membership is a desire to stop drinking. We are not allied with any sect, denomination, politics, organization, or institution. We do not wish to engage in any controversy, and we neither endorse nor oppose any causes.</p>
+    <p>Newcomers are always welcome. If you have a desire to stop drinking, you belong with us and are always welcome here.</p>
+  </div>
+</section>
+
+<!-- QUOTE 1 -->
+<div class="quote-block">
+  <blockquote>"Rarely have we seen a person fail who has thoroughly followed our path."</blockquote>
+  <cite>Alcoholics Anonymous, p. 58</cite>
+</div>
+
+<!-- MEETINGS -->
+<section id="meetings">
+  <h2>Meeting Schedule</h2>
+  <div class="schedule-grid">
+
+    <div class="meeting-card">
+      <div class="meeting-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 60" fill="none" stroke="#c8843a" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M8 14c0 0 8-3 22 0v28c-14-3-22 0-22 0V14z" fill="#f5efe6"/><path d="M52 14c0 0-8-3-22 0v28c14-3 22 0 22 0V14z" fill="#f5efe6"/><line x1="30" y1="14" x2="30" y2="42"/><line x1="14" y1="20" x2="26" y2="22"/><line x1="14" y1="26" x2="26" y2="28"/><line x1="14" y1="32" x2="26" y2="34"/><rect x="32" y="16" width="16" height="11" rx="3" fill="#f5efe6"/><path d="M35 27l-2 4 5-4" fill="#f5efe6" stroke="#c8843a" stroke-width="1.6"/><line x1="35" y1="20" x2="44" y2="20" stroke="#e8aa6a" stroke-width="1.4"/><line x1="35" y1="23" x2="42" y2="23" stroke="#e8aa6a" stroke-width="1.4"/></svg></div>
+      <div class="meeting-day">Sunday</div>
+      <div class="meeting-time">5:30 PM Eastern</div>
+      <div class="meeting-type">Big Book Personal Stories</div>
+      <div class="meeting-link"><a href="https://tinyurl.com/530zoom" aria-label="Join the TGI530 Online Zoom meeting">Join Meeting</a></div>
+    </div>
+
+    <div class="meeting-card">
+      <div class="meeting-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 60" fill="none" stroke="#c8843a" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M10 34c0 0 2-10 6-10 2 0 3 2 3 2s1-4 4-4c2 0 3 2 3 4V42c0 4-3 6-7 6H12c-3 0-4-2-4-4l2-10z" fill="#f5efe6"/><path d="M50 34c0 0-2-10-6-10-2 0-3 2-3 2s-1-4-4-4c-2 0-3 2-3 4V42c0 4 3 6 7 6h7c3 0 4-2 4-4l-2-10z" fill="#f5efe6"/><path d="M30 18c0 0-6-6-6-10a6 6 0 0 1 12 0c0 4-6 10-6 10z" fill="#e8aa6a" stroke="#c8843a" stroke-width="1.6"/></svg></div>
+      <div class="meeting-day">Monday</div>
+      <div class="meeting-time">5:30 PM Eastern</div>
+      <div class="meeting-type">Acceptance</div>
+      <div class="meeting-link"><a href="https://tinyurl.com/530zoom" aria-label="Join the TGI530 Online Zoom meeting">Join Meeting</a></div>
+    </div>
+
+    <div class="meeting-card">
+      <div class="meeting-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 60" fill="none" stroke="#c8843a" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="50" rx="5" ry="3" fill="#e8aa6a" stroke="#c8843a" stroke-width="1.4"/><ellipse cx="22" cy="46" rx="5" ry="3" fill="#f5efe6" stroke="#c8843a" stroke-width="1.4"/><ellipse cx="30" cy="42" rx="5" ry="3" fill="#e8aa6a" stroke="#c8843a" stroke-width="1.4"/><ellipse cx="38" cy="38" rx="5" ry="3" fill="#f5efe6" stroke="#c8843a" stroke-width="1.4"/><ellipse cx="44" cy="32" rx="5" ry="3" fill="#e8aa6a" stroke="#c8843a" stroke-width="1.4"/><ellipse cx="46" cy="25" rx="5" ry="3" fill="#f5efe6" stroke="#c8843a" stroke-width="1.4"/><ellipse cx="42" cy="18" rx="5" ry="3" fill="#e8aa6a" stroke="#c8843a" stroke-width="1.4"/><ellipse cx="35" cy="13" rx="5" ry="3" fill="#f5efe6" stroke="#c8843a" stroke-width="1.4"/><ellipse cx="27" cy="10" rx="5" ry="3" fill="#e8aa6a" stroke="#c8843a" stroke-width="1.4"/><ellipse cx="19" cy="10" rx="5" ry="3" fill="#f5efe6" stroke="#c8843a" stroke-width="1.4"/><ellipse cx="12" cy="14" rx="5" ry="3" fill="#e8aa6a" stroke="#c8843a" stroke-width="1.4"/><ellipse cx="8" cy="20" rx="5" ry="3" fill="#f5efe6" stroke="#c8843a" stroke-width="1.4"/></svg></div>
+      <div class="meeting-day">Tuesday</div>
+      <div class="meeting-time">5:30 PM Eastern</div>
+      <div class="meeting-type">12 Steps &amp; 12 Traditions</div>
+      <div class="meeting-link"><a href="https://tinyurl.com/530zoom" aria-label="Join the TGI530 Online Zoom meeting">Join Meeting</a></div>
+    </div>
+
+    <div class="meeting-card">
+      <div class="meeting-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 60" fill="none" stroke="#c8843a" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="8" y="12" width="32" height="38" rx="2" fill="#f5efe6"/><path d="M8 12c0 0 4-3 8 0v38c-4-3-8 0-8 0V12z" fill="#e8aa6a" stroke="#c8843a" stroke-width="1.8"/><line x1="20" y1="22" x2="34" y2="22"/><line x1="20" y1="29" x2="34" y2="29"/><line x1="20" y1="36" x2="28" y2="36"/><circle cx="42" cy="38" r="9" fill="#f5efe6"/><circle cx="42" cy="38" r="6" stroke="#c8843a" stroke-width="1.8"/><line x1="47" y1="43" x2="53" y2="50" stroke-width="2.5"/></svg></div>
+      <div class="meeting-day">Wednesday</div>
+      <div class="meeting-time">5:30 PM Eastern</div>
+      <div class="meeting-type">Big Book Study</div>
+      <div class="meeting-link"><a href="https://tinyurl.com/530zoom" aria-label="Join the TGI530 Online Zoom meeting">Join Meeting</a></div>
+    </div>
+
+    <div class="meeting-card">
+      <div class="meeting-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 60" fill="none" stroke="#c8843a" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="6" width="24" height="15" rx="4" fill="#f5efe6"/><path d="M8 21l-3 6 7-6" fill="#f5efe6" stroke="#c8843a" stroke-width="1.6"/><line x1="9" y1="12" x2="22" y2="12" stroke="#e8aa6a" stroke-width="1.4"/><line x1="9" y1="16" x2="18" y2="16" stroke="#e8aa6a" stroke-width="1.4"/><rect x="30" y="20" width="26" height="15" rx="4" fill="#f5efe6"/><path d="M52 35l3 6-7-6" fill="#f5efe6" stroke="#c8843a" stroke-width="1.6"/><line x1="35" y1="26" x2="50" y2="26" stroke="#e8aa6a" stroke-width="1.4"/><line x1="35" y1="30" x2="46" y2="30" stroke="#e8aa6a" stroke-width="1.4"/><rect x="10" y="38" width="24" height="14" rx="4" fill="#f5efe6"/><path d="M14 52l-3 5 6-5" fill="#f5efe6" stroke="#c8843a" stroke-width="1.6"/><line x1="15" y1="43" x2="28" y2="43" stroke="#e8aa6a" stroke-width="1.4"/><line x1="15" y1="47" x2="24" y2="47" stroke="#e8aa6a" stroke-width="1.4"/></svg></div>
+      <div class="meeting-day">Thursday</div>
+      <div class="meeting-time">5:30 PM Eastern</div>
+      <div class="meeting-type">Topic/Discussion</div>
+      <div class="meeting-link"><a href="https://tinyurl.com/530zoom" aria-label="Join the TGI530 Online Zoom meeting">Join Meeting</a></div>
+    </div>
+
+    <div class="meeting-card">
+      <div class="meeting-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 60" fill="none" stroke="#c8843a" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="4" y1="42" x2="56" y2="42" stroke="#c8843a" stroke-width="1.6"/><circle cx="30" cy="42" r="11" fill="#e8aa6a" stroke="#c8843a" stroke-width="1.8"/><line x1="30" y1="18" x2="30" y2="24"/><line x1="44" y1="22" x2="41" y2="27"/><line x1="16" y1="22" x2="19" y2="27"/><line x1="50" y1="32" x2="45" y2="34"/><line x1="10" y1="32" x2="15" y2="34"/><path d="M4 42c6-4 14-6 26-6s20 2 26 6" fill="#f5efe6" stroke="none"/><path d="M4 42c6-4 14-6 26-6s20 2 26 6" fill="none" stroke="#c8843a" stroke-width="1.4"/></svg></div>
+      <div class="meeting-day">Friday</div>
+      <div class="meeting-time">5:30 PM Eastern</div>
+      <div class="meeting-type">Living Sober</div>
+      <div class="meeting-link"><a href="https://tinyurl.com/530zoom" aria-label="Join the TGI530 Online Zoom meeting">Join Meeting</a></div>
+    </div>
+
+    <div class="meeting-card">
+      <div class="meeting-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 60" fill="none" stroke="#c8843a" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polygon points="18,52 42,52 38,32 22,32" fill="#f5efe6"/><line x1="15" y1="52" x2="45" y2="52"/><line x1="20" y1="38" x2="40" y2="38" stroke="#e8aa6a" stroke-width="1.4"/><line x1="21" y1="43" x2="39" y2="43" stroke="#e8aa6a" stroke-width="1.4"/><line x1="30" y1="32" x2="30" y2="22"/><rect x="24" y="10" width="12" height="16" rx="6" fill="#f5efe6"/><line x1="26" y1="14" x2="34" y2="14" stroke="#e8aa6a" stroke-width="1.2"/><line x1="26" y1="18" x2="34" y2="18" stroke="#e8aa6a" stroke-width="1.2"/><line x1="26" y1="22" x2="34" y2="22" stroke="#e8aa6a" stroke-width="1.2"/><path d="M20 12c-3 2-3 10 0 12" stroke="#e8aa6a" stroke-width="1.4" fill="none"/><path d="M40 12c3 2 3 10 0 12" stroke="#e8aa6a" stroke-width="1.4" fill="none"/></svg></div>
+      <div class="meeting-day">Saturday</div>
+      <div class="meeting-time">5:30 PM Eastern</div>
+      <div class="meeting-type">Speaker</div>
+      <div class="meeting-link"><a href="https://tinyurl.com/530zoom" aria-label="Join the TGI530 Online Zoom meeting">Join Meeting</a></div>
+    </div>
+
+  </div>
+  <p class="meeting-note">All meetings are held via Zoom. Links are updated as needed — bookmark this page for current access information.</p>
+</section>
+
+<!-- QUOTE 2 -->
+<div class="quote-block">
+  <blockquote>"Every group ought to be fully self-supporting, declining outside contributions."</blockquote>
+  <cite>A.A. Seventh Tradition</cite>
+</div>
+
+
+<!-- CONTRIBUTIONS -->
+<section id="contributions">
+  <h2>Contributions</h2>
+  <div class="contrib-grid">
+    <div class="contrib-card">
+      <p>Our group depends on the voluntary contributions of members to help cover the practical expenses of carrying the message online. These contributions help support the group and preserve a stable meeting place for alcoholics seeking recovery.</p>
+
+
+      <p>Contributions may be made by Venmo, Zelle, or CashApp. If you wish to contribute by other means, please contact the group treasurer, <strong>John E.</strong>, at <a href="mailto:johnfordevans@gmail.com">johnfordevans@gmail.com</a>.</p>
+
+      <div class="contrib-methods">
+        <span class="contrib-method">Venmo</span>
+        <span class="contrib-method">Zelle</span>
+        <span class="contrib-method">CashApp</span>
+      </div>
+
+      <p class="contrib-note">Thank you for helping <span class="group-name">TGI530 Online</span> remain self-supporting in the spirit of A.A.'s Seventh Tradition.</p>
+    </div>
+
+    <div class="qr-card">
+      <img src="assets/images/TGI530VENMO.jpg" alt="Venmo QR code for TGI530 Online contributions">
+      <div class="qr-caption">Venmo: <strong>@tgi530online</strong></div>
+    </div>
+  </div>
+</section>
+
+
+<!-- QUOTE 3 -->
+<div class="quote-block">
+  <blockquote>"One day at a time."</blockquote>
+  <cite>A.A. Saying</cite>
+</div>
+
+<!-- SERVICE BOARD -->
+<section id="gsb">
+  <h2>Service Board</h2>
+  <p style="margin-bottom: 1.6rem; color: var(--text-light); font-size: 0.95rem;">These members have been elected by the group to steward its affairs. Reach out to any board member with questions or concerns.</p>
+  <div class="gsb-grid">
+
+    <div class="gsb-card">
+      <div class="gsb-info">
+        <div class="gsb-name">Geoff S.</div>
+        <div class="gsb-role">Chairperson</div>
+      </div>
+      <div class="gsb-email"><a href="mailto:fred16@me.com">✉ fred16@me.com</a></div>
+    </div>
+
+    <div class="gsb-card">
+      <div class="gsb-info">
+        <div class="gsb-name">Linda C.</div>
+        <div class="gsb-role">Co-Chairperson</div>
+      </div>
+      <div class="gsb-email"><a href="mailto:lec22041@gmail.com">✉ lec22041@gmail.com</a></div>
+    </div>
+
+    <div class="gsb-card">
+      <div class="gsb-info">
+        <div class="gsb-name">John E.</div>
+        <div class="gsb-role">Treasurer</div>
+      </div>
+      <div class="gsb-email"><a href="mailto:johnfordevans@gmail.com">✉ johnfordevans@gmail.com</a></div>
+    </div>
+
+    <div class="gsb-card">
+      <div class="gsb-info">
+        <div class="gsb-name">Edneka H.</div>
+        <div class="gsb-role">Secretary</div>
+      </div>
+      <div class="gsb-email"><a href="mailto:edneka.l.haynes@gmail.com">✉ edneka.l.haynes@gmail.com</a></div>
+    </div>
+
+  </div>
+</section>
+
+<!-- QUOTE 4 -->
+<div class="quote-block">
+  <blockquote>"We are not cured of alcoholism. What we really have is a daily reprieve contingent on the maintenance of our spiritual condition."</blockquote>
+  <cite>Alcoholics Anonymous, p. 85</cite>
+</div>
+
+<!-- RESOURCES -->
+<section id="resources">
+  <h2>Resources &amp; Downloads</h2>
+  <p style="margin-bottom: 1.6rem; color: var(--text-light); font-size: 0.95rem;">Resources are updated monthly. Check back regularly for current materials.</p>
+  <div class="resources-grid">
+
+    <div class="resource-card">
+      <div class="resource-icon">📋</div>
+      <div class="resource-title">Meeting Format</div>
+      <div class="resource-desc">Current reading format used in our daily meetings.</div>
+      <a href="assets/docs/meeting-format.pdf">Download PDF</a>
+    </div>
+
+    <div class="resource-card">
+      <div class="resource-icon">📅</div>
+      <div class="resource-title">Monthly Schedule</div>
+      <div class="resource-desc">Printable meeting schedule with Zoom access details.</div>
+      <a href="assets/docs/monthly-schedule.pdf">Download PDF</a>
+    </div>
+
+    <div class="resource-card">
+      <div class="resource-icon">📖</div>
+      <div class="resource-title">How It Works</div>
+      <div class="resource-desc">Reading from Alcoholics Anonymous, Chapter 5.</div>
+      <a href="assets/docs/how-it-works.pdf">Download PDF</a>
+    </div>
+
+    <div class="resource-card">
+      <div class="resource-icon">🔷</div>
+      <div class="resource-title">The Twelve Steps</div>
+      <div class="resource-desc">The suggested program of recovery.</div>
+      <a href="assets/docs/twelve-steps.pdf">Download PDF</a>
+    </div>
+
+    <div class="resource-card">
+      <div class="resource-icon">🔶</div>
+      <div class="resource-title">The Twelve Traditions</div>
+      <div class="resource-desc">Principles guiding our group relationships.</div>
+      <a href="assets/docs/twelve-traditions.pdf">Download PDF</a>
+    </div>
+
+    <div class="resource-card">
+      <div class="resource-icon">📝</div>
+      <div class="resource-title">Meeting Minutes</div>
+      <div class="resource-desc">Most recent group conscience business meeting notes.</div>
+      <a href="assets/docs/meeting-minutes.pdf">Download PDF</a>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- QUOTE 5 -->
+<div class="quote-block">
+  <blockquote>"Practical experience shows that nothing will so much insure immunity from drinking as intensive work with other alcoholics."</blockquote>
+  <cite>Alcoholics Anonymous, p. 89</cite>
+</div>
+
+<!-- SPONSORSHIP -->
+<section id="sponsorship">
+  <h2>Sponsorship</h2>
+  <div class="about-text">
+    <p>Sponsorship is one of the cornerstones of recovery in Alcoholics Anonymous. A sponsor is a sober member of A.A. who shares their experience, strength, and hope with another member who is working to achieve and maintain sobriety. The relationship between a sponsor and sponsee is one of the most powerful tools available in this program.</p>
+    <p>Working with a sponsor provides personal guidance through the Twelve Steps, accountability, and a living example that recovery is possible. Sponsors give freely what was freely given to them — it is an act of service that strengthens both the giver and the receiver.</p>
+    <p>If you are looking for a sponsor, we encourage you to reach out during or after any of our meetings, or contact one of our Sponsor Liaisons below. They can help connect you with a willing sponsor in our group.</p>
+  </div>
+
+  <div class="sponsor-grid">
+    <div class="sponsor-card">
+      <div class="sponsor-name">Holly M.</div>
+      <div class="sponsor-scope">Sponsor Liaison — Women &amp; Non-Binary</div>
+      <div class="sponsor-phone">Phone: <span class="sponsor-phone-val">703.965.2240</span></div>
+      <div class="sponsor-email">Email: <a href="mailto:HGMAHLA@gmail.com">HGMAHLA@gmail.com</a></div>
+    </div>
+    <div class="sponsor-card">
+      <div class="sponsor-name">Logan</div>
+      <div class="sponsor-scope">Sponsor Liaison — Men</div>
+      <div class="sponsor-phone">Phone: <span class="sponsor-phone-val">703.517.1394</span></div>
+      <div class="sponsor-email">Email: <a href="mailto:logan@goolrick.us">logan@goolrick.us</a></div>
+    </div>
+  </div>
+</section>
+
+<!-- QUOTE FINAL -->
+<div class="quote-block">
+  <blockquote>"Our common welfare should come first; personal recovery depends upon A.A. unity."</blockquote>
+  <cite>The Twelve Traditions, Tradition One</cite>
+</div>
+
+</main>
+
+<!-- FOOTER -->
+<footer>
+  <div class="serenity">God grant me the serenity to accept the things I cannot change,<br>courage to change the things I can, and wisdom to know the difference.</div>
+
+  <div class="footer-contact" id="contact">
+    <div class="footer-group-name">TGI530 Online</div>
+    <div class="footer-contact-grid">
+      <div class="footer-contact-item">
+        <span class="footer-label">Email</span>
+        <a href="mailto:tgi530online@gmail.com">tgi530online@gmail.com</a>
+      </div>
+      <div class="footer-contact-item">
+        <span class="footer-label">Zoom ID</span>
+        <span>332 553 7796</span>
+      </div>
+      <div class="footer-contact-item">
+        <span class="footer-label">Phone</span>
+        <span>(703) 705-2664</span>
+      </div>
+      <div class="footer-contact-item">
+        <span class="footer-label">Zoom PW</span>
+        <span>12steps</span>
+      </div>
+    </div>
+    <div class="footer-contact-url">
+      Coming soon on GitHub Pages
+    </div>
+  </div>
+
+  <div class="footer-fine">
+    A Group of Alcoholics Anonymous<br>
+    <small>Alcoholics Anonymous is not affiliated with this website. A.A. has no opinion on outside enterprises.</small>
+  </div>
+</footer>
+
+</body>
+</html>
