@@ -432,21 +432,22 @@
     border-color: var(--amber);
   }
 
-  /* ── RESOURCES ── */
-  .resources-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  /* ── RESOURCES ── */  .resources-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
     gap: 1rem;
   }
 
-  .resource-card {
+.resource-card {
     background: var(--warm-white);
     border: 1px solid rgba(92,61,30,0.1);
     border-radius: 4px;
     padding: 1.3rem;
     text-align: center;
     transition: box-shadow 0.2s, transform 0.2s;
-  }
+    flex: 0 1 220px;
+}
 
   .resource-card:hover {
     box-shadow: 0 4px 16px rgba(92,61,30,0.12);
@@ -829,10 +830,11 @@
 <nav>
   <a href="#top">Home</a>
   <a href="#meetings">Meetings</a>
-  <a href="#resources">Resources</a>
+  <a href="#service-opportunities">Service</a>
   <a href="#contributions">Contribute</a>
-  <a href="#sponsorship">Sponsorship</a>
   <a href="#gsb">Service Board</a>
+  <a href="#resources">Resources</a>
+  <a href="#sponsorship">Sponsorship</a>
   <a href="#contact">Contact</a>
 </nav>
 
@@ -919,6 +921,21 @@
 </section>
 
 <!-- QUOTE 2 -->
+<div class="quote-block">
+  <blockquote>"Practical experience shows that nothing will so much insure immunity from drinking as intensive work with other alcoholics."</blockquote>
+  <cite>Alcoholics Anonymous, p. 89</cite>
+</div>
+
+<!-- SERVICE OPPORTUNITIES -->
+<section id="service-opportunities">
+  <h2>Service Opportunities</h2>
+  <div class="about-text">
+    <p><span class="group-name">TGI530</span> has many opportunities for members to participate in service. Service is the foundation of our group and helps keep all of us sober. Each of our daily meetings has four opportunities: <strong>Meeting Host</strong>, <strong>AV Host</strong>, <strong>Secretary</strong>, and <strong>Greeter/Timer</strong>.</p>
+    <p>Service commitments are typically <strong>4 months</strong> in length and begin <strong>April 1</strong>, <strong>August 1</strong>, and <strong>December 1</strong>. For additional information, please reach out to the general <a href="mailto:tgi530online@gmail.com">TGI530 email</a> or to anyone currently in service.</p>
+  </div>
+</section>
+
+<!-- QUOTE 6 -->
 <div class="quote-block">
   <blockquote>"Every group ought to be fully self-supporting, declining outside contributions."</blockquote>
   <cite>A.A. Seventh Tradition</cite>
@@ -1015,25 +1032,40 @@
       <div class="resource-icon">📖</div>
       <div class="resource-title">How It Works</div>
       <div class="resource-desc">Reading from Alcoholics Anonymous, Chapter 5.</div>
-      <a href="assets/docs/how-it-works.pdf">Download PDF</a>
+      <a href="assets/docs/AA_How_It_Works.pdf">Download PDF</a>
     </div>
 
     <div class="resource-card">
       <div class="resource-icon">🔷</div>
       <div class="resource-title">The Twelve Steps</div>
       <div class="resource-desc">The suggested program of recovery.</div>
-      <a href="assets/docs/twelve-steps.pdf">Download PDF</a>
+      <a href="assets/docs/The_Twelve_Steps_of_Alcoholics_Anonymous-SMF-121.pdf">Download PDF</a>
     </div>
 
     <div class="resource-card">
       <div class="resource-icon">🔶</div>
       <div class="resource-title">The Twelve Traditions</div>
       <div class="resource-desc">Principles guiding our group relationships.</div>
-      <a href="assets/docs/twelve-traditions.pdf">Download PDF</a>
+      <a href="assets/docs/AA_Twelve_Traditions.pdf">Download PDF</a>
+    </div>
+
+    <div class="resource-card">
+      <div class="resource-icon">📄</div>
+      <div class="resource-title">The A.A. Preamble</div>
+      <div class="resource-desc">A brief statement of the purpose and scope of Alcoholics Anonymous.</div>
+      <a href="assets/docs/AA_Preamble.pdf">Download PDF</a>
+    </div>
+
+    <div class="resource-card">
+      <div class="resource-icon">✨</div>
+      <div class="resource-title">Acceptance</div>
+      <div class="resource-desc">A.A. reading on acceptance and serenity.</div>
+      <a href="assets/docs/AA_Acceptance_Part_I.pdf">Download PDF</a>
     </div>
 
   </div>
 </section>
+
 
 <!-- QUOTE 5 -->
 <div class="quote-block">
